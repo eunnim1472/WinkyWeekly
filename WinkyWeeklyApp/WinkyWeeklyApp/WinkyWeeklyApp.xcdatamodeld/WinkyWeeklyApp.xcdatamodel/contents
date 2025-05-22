@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24C101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="StudyBlock" representedClassName="StudyBlock" syncable="YES">
+        <attribute name="day" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="plans" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StudyPlan" inverseName="blocks" inverseEntity="StudyPlan"/>
+        <relationship name="subjects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="studyBlocks" inverseEntity="Subject"/>
+    </entity>
+    <entity name="StudyLog" representedClassName="StudyLog" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="duration" optional="YES" attributeType="Transformable"/>
+        <relationship name="subjects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="studyLogs" inverseEntity="Subject"/>
+    </entity>
+    <entity name="StudyPlan" representedClassName="StudyPlan" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="blocks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StudyBlock" inverseName="plans" inverseEntity="StudyBlock"/>
+    </entity>
+    <entity name="Subject" representedClassName="Subject" syncable="YES">
+        <attribute name="colors" optional="YES" attributeType="Transformable"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="primaryColorHex" optional="YES" attributeType="Transformable"/>
+        <attribute name="sortIndex" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="studyBlocks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StudyBlock" inverseName="subjects" inverseEntity="StudyBlock"/>
+        <relationship name="studyLogs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StudyLog" inverseName="subjects" inverseEntity="StudyLog"/>
+    </entity>
+</model>
