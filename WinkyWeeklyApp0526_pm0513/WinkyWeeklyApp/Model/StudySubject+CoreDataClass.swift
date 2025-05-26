@@ -1,0 +1,15 @@
+//
+//  StudySubject+CoreDataClass.swift
+//  WinkyWeeklyApp
+//
+//  Created by 김가은 on 5/22/25.
+//
+//
+
+import Foundation
+import CoreData
+
+@objc(StudySubject)
+public class StudySubject: NSManagedObject {
+
+}
